@@ -9,7 +9,7 @@ header {
     background-color: #ffffff;
     color: rgb(30, 255, 0);
     padding: 10px 0;
-    text-align: left;
+    text-align: right;
 }
 nav ul {
     list-style: none;
@@ -57,4 +57,16 @@ section {
 }
 .article a:hover {
     text-decoration: underline;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.Navigation{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: #333333;
+    text-align: right;
+    margin-right: 0px;
 }
