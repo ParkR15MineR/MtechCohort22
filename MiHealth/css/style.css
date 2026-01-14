@@ -16,8 +16,8 @@ body {
 }
 
 /* 3. Logo Colors */
-.mi { color: #d64a2e; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 2rem; }
-.health { color: #8bc34a; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 2rem; }
+.mi { color: #d64a2e; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3rem; }
+.health { color: #8bc34a; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3rem; }
 
 /* 4. Layout */
 header {
