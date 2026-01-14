@@ -179,3 +179,12 @@ p {
     background-color: #ffffff;
 
 }
+li {
+    color: #333333;
+    font-style: bold;
+}
+a {
+    text-decoration: none;
+    color: #333333;
+    font-style: bold;
+}
