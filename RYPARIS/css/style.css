@@ -392,3 +392,22 @@ nav ul li a {
     max-width: 900px;         /* Keeps the text from stretching too wide */
     margin: 0 auto;           /* Centers the container itself */
 }
+
+.imbeded-video {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.imbeded-video h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* This makes the video responsive so it doesn't break on mobile */
+video, .video-container iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
