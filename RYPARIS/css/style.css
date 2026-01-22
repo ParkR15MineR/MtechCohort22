@@ -51,6 +51,105 @@ nav ul li a {
     align-items: center; /* Centers the CTA box */
 }
 
+.burger-hero {
+    width: 100%;
+    height: 600px;
+    background: url('/Images/drive-download-20260120T191837Z-3-001/burger-hero.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the CTA box */
+}
+.title-box {
+    background: white;
+    padding: 10px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.title-box h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* 2. Time Summary Bar (Light Blue Section) */
+.time-summary {
+    background-color: #dee4ed; /* Matches the blue from previous sections */
+    padding: 30px 0;
+}
+
+.summary-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 20px;
+}
+
+.summary-column h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.summary-column p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/* 3. Recipe Intro & Rating */
+.recipe-intro {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.recipe-intro h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #a04028; /* The dark brick red from the stars */
+    font-size: 20px;
+}
+
+.review-count {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 4. Buttons */
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.save-btn {
+    background-color: #a04028; /* Dark Red/Brown */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.print-btn {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 .cta-box {
     background-color: white;
     padding: 20px 40px;
@@ -214,4 +313,82 @@ nav ul li a {
 
 .footer-links li a:hover {
     text-decoration: underline;
+}
+
+.recipe-details {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Directions get a bit more space */
+    gap: 60px;
+    padding-top: 40px;
+    align-items: start;
+}
+
+.recipe-details h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+/* Ingredients List Styling */
+.ingredients ul {
+    list-style: none; /* Removes default bullets */
+    padding: 0;
+}
+
+.ingredients ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Custom Bullet Point (Black Dot) */
+.ingredients ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.ingredients h3 {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* Directions List Styling */
+.directions ol {
+    padding-left: 25px;
+}
+
+.directions ol li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding-left: 10px;
+}
+
+/* Style for the numbers in the list */
+.directions ol li::marker {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.recipe-quote {
+    background-color: #f0f2f5; /* Light gray background */
+    padding: 40px 10%;       /* Large horizontal padding to pull the text in */
+    margin-bottom: 40px;      /* Space before the ingredients start */
+    text-align: center;       /* Centers the text */
+}
+
+.quote-container p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;          /* Slightly larger text for the quote */
+    font-weight: 800;         /* Extra bold weight to match mockup */
+    color: #555;              /* Dark gray for a softer look than pure black */
+    line-height: 1.4;
+    max-width: 900px;         /* Keeps the text from stretching too wide */
+    margin: 0 auto;           /* Centers the container itself */
 }
