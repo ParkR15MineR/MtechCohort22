@@ -33,22 +33,6 @@ export function updateHeaderQuantity() {
     }
 }
 
-export function addToCart(productId, quantity = 1) {
-  const matchingItem = cart.find(item => item.productId === productId);
-
-  if (matchingItem) {
-    matchingItem.quantity += quantity;
-  } else {
-    cart.push({ productId, quantity });
-  }
-  saveToStorage();
-}
-
-export function removeFromCart(productId) {
-  cart = cart.filter(item => item.productId !== productId);
-  saveToStorage();
-}
-
 /**
  * ARCHITECTURE TIP: Centralize all calculations here.
  * Pages should only ask for the result, not do the math themselves.
