@@ -32,3 +32,38 @@ export function updateHeaderQuantity() {
         quantityElement.innerText = quantity;
     }
 }
+
+export function addToCart(productId, quantity = 1) {
+  const matchingItem = cart.find(item => item.productId === productId);
+
+  if (matchingItem) {
+    matchingItem.quantity += quantity;
+  } else {
+    cart.push({ productId, quantity });
+  }
+  saveToStorage();
+}
+
+export function removeFromCart(productId) {
+  cart = cart.filter(item => item.productId !== productId);
+  saveToStorage();
+}
+
+/**
+ * ARCHITECTURE TIP: Centralize all calculations here.
+ * Pages should only ask for the result, not do the math themselves.
+ */
+export function getCartStats() {
+  let totalQuantity = 0;
+  let totalCents = 0;
+
+  cart.forEach(cartItem => {
+    const product = products.find(p => p.id === cartItem.productId);
+    if (product) {
+      totalQuantity += cartItem.quantity;
+      totalCents += (product.priceCents * cartItem.quantity);
+    }
+  });
+
+  return { totalQuantity, totalCents };
+}
