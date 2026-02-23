@@ -1,5 +1,5 @@
 import { products } from '../data/products.js';
-import { addToCart } from '../cart/cart.js';
+import { addToCart, updateHeaderQuantity } from '../cart/cart.js';
 
 function renderProducts() {
   let productsHTML = '';
@@ -24,7 +24,7 @@ function renderProducts() {
     button.addEventListener('click', () => {
       const { productId } = button.dataset;
       addToCart(productId);
-      alert('Added to cart!');
+      updateHeaderQuantity();
     });
   });
 }
