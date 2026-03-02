@@ -51,3 +51,12 @@ export function getCartStats() {
 
   return { totalQuantity, totalCents };
 }
+
+export function updateQuantity(productId, newQuantity) {
+    const matchingItem = cart.find(item => item.productId === productId);
+    
+    if (matchingItem) {
+        matchingItem.quantity = newQuantity;
+        saveToStorage(); // Persist the change
+    }
+}
