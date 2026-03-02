@@ -20,13 +20,25 @@ function renderCheckout() {
                 <div class="item-details">
                     <p class="product-name"><strong>${product.name}</strong></p>
                     <p>Price: $${(product.priceCents / 100).toFixed(2)}</p>
-                    <p>Quantity: ${cartItem.quantity}</p>
+
+                    <div class="quantity-controls">
+                      <label>Quantity:</label>
+                      <input type="number" 
+                           class="js-quantity-input" 
+                           data-product-id="${product.id}" 
+                           value="${cartItem.quantity}" 
+                           min="1" 
+                           style="width: 50px; margin-right: 10px;">
+                      <button class="js-update-btn" data-product-id="${product.id}">Update</button>
+                    </div>
+
                     <p>Subtotal: $${(itemTotal / 100).toFixed(2)}</p>
                     <button class="js-delete-btn" data-product-id="${product.id}">Remove</button>
                 </div>
             </div>
         `;
     });
+  
 
     // 2. Put the HTML on the page
     const summaryElement = document.querySelector('.js-order-summary');
@@ -41,10 +53,20 @@ function renderCheckout() {
     // 4. Attach Event Listeners
     document.querySelectorAll('.js-delete-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            removeFromCart(btn.dataset.productId);
-            renderCheckout(); // Re-render to show updated cart
-        });
+           const { productId } = btn.dataset;
+        
+        // Find the input field associated with this product
+        const input = document.querySelector(`.js-quantity-input[data-product-id="${productId}"]`);
+        const newQuantity = parseInt(input.value);
+
+        if (newQuantity > 0) {
+            updateQuantity(productId, newQuantity);
+            renderCheckout(); // Refresh the UI to show new totals
+        } else {
+            alert('Quantity must be at least 1');
+        }
     });
+});
 }
 
 function renderPaymentSummary(totalCents) {
