@@ -1,0 +1,62 @@
+export let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+export function addToCart(productId) {
+    const matchingItem = cart.find(item => item.productId === productId);
+
+    if (matchingItem) {
+        matchingItem.quantity += 1;
+    } else {
+        cart.push({ productId, quantity: 1 });
+    }
+    saveToStorage();
+}
+
+export function removeFromCart(productId) {
+    cart = cart.filter(item => item.productId !== productId);
+    saveToStorage();
+}
+
+export function calculateCartQuantity() {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+function saveToStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Update the header on any page
+export function updateHeaderQuantity() {
+    const quantity = calculateCartQuantity();
+    const quantityElement = document.getElementById('cart-quantity');
+    if (quantityElement) {
+        quantityElement.innerText = quantity;
+    }
+}
+
+/**
+ * ARCHITECTURE TIP: Centralize all calculations here.
+ * Pages should only ask for the result, not do the math themselves.
+ */
+export function getCartStats() {
+  let totalQuantity = 0;
+  let totalCents = 0;
+
+  cart.forEach(cartItem => {
+    const product = products.find(p => p.id === cartItem.productId);
+    if (product) {
+      totalQuantity += cartItem.quantity;
+      totalCents += (product.priceCents * cartItem.quantity);
+    }
+  });
+
+  return { totalQuantity, totalCents };
+}
+
+export function updateQuantity(productId, newQuantity) {
+    const matchingItem = cart.find(item => item.productId === productId);
+    
+    if (matchingItem) {
+        matchingItem.quantity = newQuantity;
+        saveToStorage(); // Persist the change
+    }
+}
