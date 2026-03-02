@@ -30,3 +30,4 @@ function renderProducts() {
 }
 
 renderProducts();
+updateHeaderQuantity();
