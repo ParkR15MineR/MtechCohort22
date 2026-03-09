@@ -7,4 +7,31 @@
         <title>Movie API Project</title>
         <link rel="stylesheet" href="styles/styles.css">
     </head>
+    <body>
+        <header>
+            <h1>Movie API Project</h1>
+            <nav>
+                <ul>
+                    <li><a href="Main.html">Home</a></li>
+                    <li><a href="Saved.html">Saved Movies</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Saved Movies</h2>
+            <div id="saved-movies" class="movie-grid">
+                <!-- Saved movies will be dynamically generated here -->
+                 <nav>
+  <button onclick="window.location.href='index.html'">← Back to Search</button>
+  <h1>My Saved Movies</h1>
+</nav>
+
+<main>
+  <div id="saved-grid" class="movie-grid">
+    </div>
+  <p id="empty-msg" style="display:none;">Your list is empty. Go find some movies!</p>
+</main>
+            </div>
+        </main>
+    </body>
 </html>
