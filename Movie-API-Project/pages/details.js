@@ -2,7 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
 
-const API_KEY = 'YOUR_API_KEY';
+const API_KEY = '87ca3b0db58cf656a3b366a525ed35c4';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 async function loadMovieDetails() {
