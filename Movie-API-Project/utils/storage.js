@@ -1,27 +1,5 @@
 const movieContainer = document.getElementById('movie-container');
 
-async function getMovies() {
-  // 1. Fetch the data from the API
-  const response = await fetch('?api_key=87ca3b0db58cf656a3b366a525ed35c4');
-  
-  // 2. Convert the response to JSON
-  const data = await response.json();
-  
-  // 3. Loop through the movies and create HTML for each
-  data.results.forEach(movie => {
-    const movieElement = document.createElement('div');
-    movieElement.classList.add('movie-card');
-
-    movieElement.innerHTML = `
-      <img src="${movie.poster_path}" alt="${movie.title}">
-      <h3>${movie.title}</h3>
-      <p>Rating: ${movie.vote_average}</p>
-    `;
-
-    // 4. Append to your container
-    movieContainer.appendChild(movieElement);
-  });
-}
 const movieGrid = document.getElementById('movie-grid');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
@@ -77,5 +55,3 @@ function displayMovies(movies) {
     movieGrid.appendChild(movieCard);
   });
 }
-
-getMovies();
