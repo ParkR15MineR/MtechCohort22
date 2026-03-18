@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie API Project</title>
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Movie API Project</h1>
+            <nav>
+                <ul>
+                    <li><a href="Main.html">Home</a></li>
+                    <li><a href="Saved.html">Saved Movies</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main-content">
+            <!-- Main content will be dynamically generated here -->
+             <nav>
+  <button onclick="window.location.href='Main.html'">← Back to Search</button>
+</nav>
+
+<main id="movie-details">
+  </main>
+
+<section id="user-interaction">
+  <h3>Your Review</h3>
+  <div class="rating-stars">
+    <select id="user-rating">
+      <option value="1">1 Star</option>
+      <option value="2">2 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="5">5 Stars</option>
+    </select>
+  </div>
+  
+  <textarea id="user-comment" placeholder="Add your thoughts..."></textarea>
+  <button id="save-movie-btn">Save & Submit Review</button>
+</section>
+
+<section id="trailer-container">
+  </section>
+        </main>
+        <script src="pages/details.js"></script>
+    </body>
+</html>
