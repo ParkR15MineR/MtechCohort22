@@ -1,7 +1,61 @@
-const App = {
-  id: crypto.randomUUID(), // Unique identifier
-  text: "Buy groceries",
-  completed: false
+import { useState } from 'react';
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const [text, setText] = useState("");
+
+  // Functions will go here...
+
+  return (
+  <div className="app-wrapper">
+    <h1>My Tasks</h1>
+    
+    <form onSubmit={addTask}>
+      <input 
+        value={text} 
+        onChange={(e) => setText(e.target.value)} 
+        placeholder="What needs to be done?"
+      />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul>
+      {tasks.map(task => (
+        <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+          <span onClick={() => toggleTask(task.id)}>
+            {task.text}
+          </span>
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const addTask = (e) => {
+  e.preventDefault(); // Prevents page refresh
+  if (!text.trim()) return;
+
+  const newTask = {
+    id: crypto.randomUUID(), 
+    text: text,
+    completed: false
+  };
+
+  setTasks([...tasks, newTask]);
+  setText(""); // Clear the input box
 };
+
+const toggleTask = (id) => {
+  setTasks(tasks.map(task => 
+    task.id === id ? { ...task, completed: !task.completed } : task
+  ));
+};
+
+const deleteTask = (id) => {
+  setTasks(tasks.filter(task => task.id !== id));
+};
+
+}
 
 export default App;
