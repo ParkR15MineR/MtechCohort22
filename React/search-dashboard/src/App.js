@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -31,6 +35,41 @@ function App() {
     </ul>
   </div>
 );
+
+return (
+  <div className="app-wrapper">
+    <h1>My Tasks</h1>
+    
+    <form onSubmit={addTask}>
+      <input 
+        value={text} 
+        onChange={(e) => setText(e.target.value)} 
+        placeholder="What needs to be done?"
+      />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul>
+      {tasks.map(task => (
+        <li key={task.id}>
+          <span 
+            onClick={() => toggleTask(task.id)}
+            style={{ 
+              textDecoration: task.completed ? 'line-through' : 'none',
+              color: task.completed ? '#888' : '#000' 
+            }}
+          >
+            {task.text}
+          </span>
+          <button className="delete-btn" onClick={() => deleteTask(task.id)}>
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
 
 const addTask = (e) => {
   e.preventDefault(); // Prevents page refresh
