@@ -1,0 +1,68 @@
+/* Container Layout */
+.app-wrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Input Group */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #646cff;
+}
+
+/* Task List Items */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+li span {
+  cursor: pointer;
+  flex: 1;
+}
+
+/* Action Buttons */
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #646cff;
+  color: white;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #535bf2;
+}
+
+.delete-btn {
+  background: #ff4d4d;
+  margin-left: 10px;
+}
