@@ -1,11 +1,5 @@
-import { useState } from 'react'
 import './App.css'
 import { useState, useEffect } from 'react'; // Don't forget to import useEffect
-
-// Inside your App component:
-useEffect(() => {
-  localStorage.setItem("my_tasks", JSON.stringify(tasks));
-}, [tasks]);
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -15,7 +9,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("my_tasks", JSON.stringify(tasks));
-  });
+  }, [tasks]);
   const [text, setText] = useState("");
   const [filter, setFilter] = useState("All");
 
@@ -32,6 +26,19 @@ function App() {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter(t => t.id !== id));
+  };
+
+  const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState("");
+
+  const startEditing = (id, currentText) => {
+    setEditingId(id);
+    setEditText(currentText);
+  };
+
+  const saveEdit = (id) => {
+    setTasks(tasks.map(t => t.id === id ? { ...t, text: editText } : t));
+    setEditingId(null);
   };
 
   // This handles your "Filter" requirement
@@ -59,12 +66,22 @@ function App() {
       <ul>
         {filteredTasks.map(task => (
           <li key={task.id}>
-            <span 
-              onClick={() => toggleTask(task.id)}
-              style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
-            >
-              {task.text}
-            </span>
+            {editingId === task.id ? (
+              <input 
+                value={editText} 
+                onChange={(e) => setEditText(e.target.value)}
+                onBlur={() => saveEdit(task.id)} // Saves when you click away
+                autoFocus
+              />
+            ) : (
+              <span 
+                onClick={() => toggleTask(task.id)}
+                onDoubleClick={() => startEditing(task.id, task.text)}
+                style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+              >
+                {task.text}
+              </span>
+            )}
             <button onClick={() => deleteTask(task.id)}>Delete</button>
           </li>
         ))}

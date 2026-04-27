@@ -182,3 +182,19 @@
     border-right-color: var(--border);
   }
 }
+
+/* Highlight the active filter button */
+.filters button.active {
+  background-color: #333;
+  color: white;
+  border: 1px solid #333;
+}
+
+/* Style for the 'items left' text */
+.stats-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
